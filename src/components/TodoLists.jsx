@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
-import { AllDataContext } from "./detailsContext/Details";
+import { AllDataContext, BASE_URL } from "./detailsContext/Details";
 
 const TodoLists = () => {
   const {
@@ -21,7 +21,7 @@ const TodoLists = () => {
 
   const deleteList = (value) => {
     axios
-      .delete(`http://localhost:2030/api/todos/${value._id}`)
+      .delete(`${BASE_URL}/api/todos/${value._id}`)
       .then((res) => removeListUpdate(res.data))
       .catch((err) => console.log(err));
   };
@@ -47,7 +47,7 @@ const TodoLists = () => {
   };
   const likeBTN = (value) => {
     axios
-      .put(`http://localhost:2030/api/todos/${value._id}`, {
+      .put(`${BASE_URL}/api/todos/${value._id}`, {
         _id: value._id,
         name: value.name,
         email: value.email,

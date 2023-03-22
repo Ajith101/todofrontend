@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export const AllDataContext = createContext();
+export const BASE_URL = "http://localhost:2030";
 
 const Details = ({ children }) => {
   const [allDatas, setAllDatas] = useState("");
@@ -12,7 +13,7 @@ const Details = ({ children }) => {
   const [addOrEdite, setAddOrEdite] = useState(false);
   async function getAllDatas() {
     axios
-      .get(`http://localhost:2030/api/todos/`)
+      .get(`${BASE_URL}/api/todos/`)
       .then((docs) => setAllDatas(docs.data))
       .catch((err) => console.log(err));
   }

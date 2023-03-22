@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
-import { AllDataContext } from "./detailsContext/Details";
+import { AllDataContext, BASE_URL } from "./detailsContext/Details";
 
 const AddNotes = () => {
   const {
@@ -38,7 +38,7 @@ const AddNotes = () => {
       return;
     } else {
       axios
-        .put(`http://localhost:2030/api/todos/${singleData.valuess._id}`, {
+        .put(`${BASE_URL}/api/todos/${singleData.valuess._id}`, {
           _id: singleData.valuess._id,
           name: name,
           email: email,
@@ -54,7 +54,7 @@ const AddNotes = () => {
       return;
     } else {
       axios
-        .post(`http://localhost:2030/api/todos/`, {
+        .post(`${BASE_URL}/api/todos/`, {
           name: name,
           email: email,
           mobnum: phnNum,
