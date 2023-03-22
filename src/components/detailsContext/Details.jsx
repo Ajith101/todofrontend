@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export const AllDataContext = createContext();
-export const BASE_URL = "http://localhost:2030";
+export const BASE_URL = "https://todobackendone.onrender.com";
 
 const Details = ({ children }) => {
   const [allDatas, setAllDatas] = useState("");
